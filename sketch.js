@@ -78,9 +78,10 @@ function draw(){
     chao.x =chao.width/2;
   }
   //pular quando tecla de espaço for pressionada
-  if(keyDown("space")&&trex.y>height-40){
+  if(touches.length>0||keyDown("space")&&trex.y>height-40){
     trex.velocityY = -10;
     jump.play()
+    touches=[]
   }
   
   trex.velocityY = trex.velocityY + 0.5;
@@ -102,9 +103,10 @@ function draw(){
     gameouver.visible=true
  restart.visible=true
 
- if(mousePressedOver(restart)){
+ if(touches.length>0||mousePressedOver(restart)){
 console.log("restartes")
 reset()
+touches=[]
  }
 
   }
